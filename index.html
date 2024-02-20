@@ -8,37 +8,42 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Oswald:wght@200..700&family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+
 </head>
 <body>
-    <h1>Calculator></h1>
+    <h1>Calculator</h1>
     <main>
+        <div id="screen">
+            <span id="input"><p id="eos">|</p></span>
+        </div>
         <div id="body">
-            <div class="btn" id="advanced">Adv</div>
-            <div class="btn" id="clear">Clr</div>
-            <div class="btn" id="backspace">⬅</div>
-            <div class="btn" id="seven">7</div>
-            <div class="btn" id="eight">8</div>
-            <div class="btn" id="nine">9</div>
-            <div class="btn" id="plus">+</div>
-            <div class="btn" id="four">4</div>
-            <div class="btn" id="five">5</div>
-            <div class="btn" id="six">6</div>
-            <div class="btn" id="minus">-</div>
-            <div class="btn" id="one">1</div>
-            <div class="btn" id="two">2</div>
-            <div class="btn" id="three">3</div>
-            <div class="btn" id="product">*</div>
-            <div class="btn" id="space">' '</div>
-            <div class="btn" id="zero">0</div>
-            <div class="btn" id="dot">.</div>
-            <div class="btn" id="division">/</div>
+            <div class="btn" id="advanced"><span>Adv</span></div>
+            <div class="btn" id="clear"><span>Clr</span></div>
+            <div class="btn" id="backspace"><span><p>⬅</p></span></div>
+            <div class="btn" id="seven"><span>7</span></div>
+            <div class="btn" id="eight"><span>8</span></div>
+            <div class="btn" id="nine"><span>9</span></div>
+            <div class="btn" id="plus"><span>+</span></div>
+            <div class="btn" id="four"><span>4</span></div>
+            <div class="btn" id="five"><span>5</span></div>
+            <div class="btn" id="six"><span>6</span></div>
+            <div class="btn" id="minus"><span><code>&#8212;</code></span></div>
+            <div class="btn" id="one"><span>1</span></div>
+            <div class="btn" id="two"><span>2</span></div>
+            <div class="btn" id="three"><span>3</span></div>
+            <div class="btn" id="product"><span>x</span></div>
+            <div class="btn" id="dot"><span>.</span></div>
+            <div class="btn" id="zero"><span>0</span></div>
+            <div class="btn" id="equal"><span>=</span></div>
+            <div class="btn" id="division"><span>/</span></div>
         </div>
         <div id="lower-body">
-            <div class="btn" id="exp">exp()</div>
-            <div class="btn" id="log">log()</div>
-            <div class="btn" id="open">(</div>
-            <div class="btn" id="close">)</div>
+            <div class="btn" id="exp"><span>exp</span></div>
+            <div class="btn" id="log"><span>log</span></div>
+            <div class="btn" id="open"><span>(</span></div>
+            <div class="btn" id="close"><span>)</span></div>
         </div>
     </main>
     <footer>Copyright &copy The Odin Project 2024 (written by <a href="https://github.com/HakemHa" target="_blank">HakemHa<img src="https://www.svgrepo.com/show/445786/github.svg" alt=" Github"></a>)</footer>

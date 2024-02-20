@@ -4,13 +4,282 @@
     padding: 0;
 }
 
+:root {
+    --light-blue: #3882f6;
+    --ligh-yellow: #f6ac38;
+    --light-gray: #6b6c6e;
+    --dark-gray: #323334;
+    --middle-gray: #4b4d4e;
+    --red: #990014;
+    --bit-green: #217300;    
+    --offset: 5px;
+}
+
+@font-face {
+    font-family: Minecraft;
+    src: url(Minecraft.ttf);
+}
+
+body {
+    background: var(--light-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    color: var(--ligh-yellow);
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: min(60px, 12.5vw);
+}
+
+main {
+    width: 90%;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#screen {
+    width: min(480px, 100%);
+    height: min(96px, 20vw*0.9);
+    background: var(--middle-gray);
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Minecraft, 'Pixelify Sans', monospace;
+    font-size: min(50px, 10vw);
+    font-weight: 100;
+    text-overflow: auto;
+}
+
+#input {
+    display: block;
+    width: 95%;
+    height: 80%;
+    background: var(--bit-green);
+    border-radius: 12px;
+    margin: 20px 0;
+    padding: 12px 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+#input p {
+    display: block;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#input #eos {
+    animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0% {opacity: 100%;}
+    50% {opacity: 0%;}
+    100% {opacity: 100%;}
+}
+
+#body {
+    background-color: var(--middle-gray);
+    max-width: 480px;
+    width: 100%;
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+.btn {
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    background: var(--dark-gray);
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin: 10px 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: min(25px, 5vw);
+}
+
+/*Make Unselectable*/
+.btn {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.btn span {
+    display: block;
+    border-radius: 12px;
+    height: 100%;
+    background: var(--light-gray);
+    transform: translateY(calc(var(--offset)*-1));
+    text-align: center;
+    padding-top: 30%;
+    overflow: hidden;
+}
+
+.btn:active span {
+    transform: translateY(0);
+}
+
+#advanced {
+    margin-left: 2.5%;
+}
+
+#advanced span {
+    background-color: black;
+    border: var(--red) 4px solid;
+    color: var(--red);
+    /*animation: swap 1s 1 linear forwards;*/
+}
+
+
+@keyframes swap {
+    from {
+        background-color: black;
+        color: var(--red);
+    }
+    to {
+        background: var(--red);
+        color: black;
+    }
+}
+
+@keyframes swapBack {
+    from {
+        background: var(--red);
+        color: black;
+    }
+    to {
+        background-color: black;
+        color: var(--red);
+    }
+}
+
+#backspace {
+    width: 45%;
+    aspect-ratio: 45 / 20;
+    margin-right: 2.5%;
+}
+
+#backspace span {
+    font-size: min(100px, 20vw);
+    position: relative;
+}
+
+#backspace span p {
+    position: absolute;
+    top: -40%;
+    left: 25%;
+}
+
+#seven {
+    margin-left: 2.5%;
+}
+
+#plus {
+    margin-right: 2.5%;
+}
+
+#four {
+    margin-left: 2.5%;
+}
+
+#minus {
+    margin-right: 2.5%;
+}
+
+#one {
+    margin-left: 2.5%;
+}
+
+#product {
+    margin-right: 2.5%;
+}
+
+#dot {
+    margin-left: 2.5%;
+}
+
+#division {
+    margin-right: 2.5%;
+}
+
+#plus, #minus, #product, #division {
+    font-size: min(50px, 10vw);
+}
+
+#minus span, #product span {
+    padding-top: 5%;
+}
+
+#plus span, #division span {
+    padding-top: 10%;
+}
+
+#lower-body {
+    width: min(480px, 100%);
+    height: min(96px, 20vw*0.9);
+    background: var(--dark-gray);
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    gap: 5%;
+    transform: translateY(max(-480px, -100%));
+    /*animation: swipe 1s ease-in forwards;*/
+    z-index: -1;
+}
+
+@keyframes swipe {
+    0% {transform: translateY(max(-480px, -100%));}
+    99% {z-index: -1;}
+    100% {transform: translateY(0); z-index: auto;}
+}
+
+@keyframes swipeBack {
+    0% {transform: translateY(0);}
+    1% {z-index: -1;}
+    100% {transform: translateY(max(-480px, -100%)); z-index: -1;}
+}
+
+#lower-body .btn {
+    background: var(--red);
+    aspect-ratio: 1 / 1;
+}
+
+#lower-body .btn span {
+    padding-top: 10%;
+    padding-bottom: 0;
+}
+
+#exp {
+    margin-left: 5%;
+}
+
+#close {
+    margin-right: 5%;
+}
+
 footer {
     width: 100%;
-    height: 60px;
+    height: 40px;
     background: #1f2937;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 footer a {
@@ -25,5 +294,5 @@ footer a:hover {
 
 footer img {
     width: 25px;
-    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
 }
