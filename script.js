@@ -62,6 +62,9 @@ backBtn.addEventListener('click', (e)=>{
     if (lastTyped === ')') {
         opened++;
     }
+    if (lastTyped === 'g') {
+        inputStr = inputStr.slice(0, inputStr.length-2);
+    }
     inputStr = inputStr.slice(0, inputStr.length-1);
     lastTyped = inputStr[inputStr.length-1];
     input.innerHTML = `<p>${inputStr}</p><p id="eos">|</p>`;
@@ -172,7 +175,7 @@ logBtn.addEventListener('click', ()=>{
         return;
     }
     inputStr = inputStr + 'log';
-    lastTyped = 'log';
+    lastTyped = 'g';
     dotted = false;
     input.innerHTML = `<p>${inputStr}</p><p id="eos">|</p>`;
 });
@@ -225,11 +228,106 @@ advBtn.addEventListener('click', ()=>{
 });
 eqBtn.addEventListener('click', ()=>{
     inputStr = solveStr(inputStr);
-    if (!parseFloat(inputStr)) {
+    if (!parseFloat(inputStr) || inputStr === 'Infinity' || inputStr === '-Infinity') {
         error = 1;
     }
     input.innerHTML = `<p>${inputStr}</p><p id="eos">|</p>`;
 });
+
+document.onkeydown = (e) => {
+    switch (e.key) {
+        case '1':
+            btn1.click();
+            break;
+        case '2':
+            btn2.click();
+            break;
+        case '3':
+            btn3.click();
+            break;
+        case '4':
+            btn4.click();
+            break;
+        case '5':
+            btn5.click();
+            break;
+        case '6':
+            btn6.click();
+            break;
+        case '7':
+            btn7.click();
+            break;
+        case '8':
+            btn8.click();
+            break;
+        case '9':
+            btn9.click();
+            break;
+        case '0':
+            btn0.click();
+            break;
+        case ' ':
+            advBtn.click();
+            break;
+        case 'Backspace':
+            backBtn.click();
+            break;
+        case 'Escape':
+            clrBtn.click();
+            break;
+        case '+':
+            sumBtn.click();
+            break;
+        case '-':
+            minBtn.click();
+            break;
+        case 'x':
+            prodBtn.click();
+            break;
+        case '*':
+            prodBtn.click()
+            break;
+        case '/':
+            divBtn.click()
+            break;
+        case '(':
+            if (advSet) {
+                openBtn.click();
+            }
+            break;
+        case ')':
+            if (advSet) {
+                closeBtn.click();
+            }
+            break;
+        case '^':
+            if (advSet) {
+                expBtn.click();
+            }
+            break;
+        case 'e':
+            if (advSet) {
+                expBtn.click();
+            }
+            break;
+        case '_':
+            if (advSet) {
+                logBtn.click();
+            }
+            break;
+        case 'l':
+            if (advSet) {
+                logBtn.click();
+            }
+            break;
+        case 'Enter':
+            eqBtn.click();
+            break;
+        case '.':
+            dotBtn.click();
+            break;
+    }
+}
     
 
 function solveStr(str) {
@@ -289,7 +387,7 @@ function solveStr(str) {
         }
     }
     const ans = solve(expr, 0)[0].toString();
-    if (!parseFloat(ans)) {
+    if (!parseFloat(ans) || ans === 'Infinity' || ans === '-Infinity') {
         return ans;
     }
     i = ans.toString().indexOf('.');
@@ -301,7 +399,6 @@ function solveStr(str) {
 }
 
 function solve(expr, idx) {
-    //console.log("Solving", expr, idx);
     let nexpr = [];
     while (idx < expr.length && expr[idx] !== ')') {
         if (expr[idx] === '(') {
@@ -320,7 +417,6 @@ function solve(expr, idx) {
             }
         }
     }
-    console.log("Solving", nexpr);
     expr = nexpr;
     nexpr = [];
     let i = 0;
