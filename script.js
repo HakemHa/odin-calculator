@@ -227,11 +227,14 @@ advBtn.addEventListener('click', ()=>{
     }
 });
 eqBtn.addEventListener('click', ()=>{
+    lastTyped = "";
+    error = 0;
+    dotted = false;
+    opened = 0;
     inputStr = solveStr(inputStr);
     if (!parseFloat(inputStr) || inputStr === 'Infinity' || inputStr === '-Infinity') {
         error = 1;
     }
-    clrBtn.click();
     input.innerHTML = `<p>${inputStr}</p><p id="eos">|</p>`;
 });
 
