@@ -231,6 +231,7 @@ eqBtn.addEventListener('click', ()=>{
     if (!parseFloat(inputStr) || inputStr === 'Infinity' || inputStr === '-Infinity') {
         error = 1;
     }
+    clrBtn.click();
     input.innerHTML = `<p>${inputStr}</p><p id="eos">|</p>`;
 });
 
