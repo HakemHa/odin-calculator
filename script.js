@@ -227,11 +227,11 @@ advBtn.addEventListener('click', ()=>{
     }
 });
 eqBtn.addEventListener('click', ()=>{
-    error = 0;
-    opened = 0;
     inputStr = solveStr(inputStr);
     lastTyped = inpuStr[inputStr.length-1];
     dotted = inputStr.includes(".");
+    error = 0;
+    opened = 0;
     if (!parseFloat(inputStr) || inputStr === 'Infinity' || inputStr === '-Infinity') {
         error = 1;
     }
