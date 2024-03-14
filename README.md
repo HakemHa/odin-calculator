@@ -9,3 +9,5 @@ TODO:
 5. Deal with large numbers.
 6. Doom easter egg.
 7. Bigger eq button.
+8. BUG: Can't start with '(';
+9. BUG: Can't type 7^(2+3) twice (using backspace)
